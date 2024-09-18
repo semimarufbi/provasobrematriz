@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private Bloco[,] bloco;
     private int territoriosConquistados;
 
-    static GameManager instance;
+    public static GameManager instance;
 
     #region Singleton
     private void Awake()
