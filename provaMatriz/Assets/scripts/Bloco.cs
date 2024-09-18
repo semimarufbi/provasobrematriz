@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Build.Content;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bloco : MonoBehaviour
@@ -43,5 +44,19 @@ public class Bloco : MonoBehaviour
             conquistado= false;
         }
     }
+    public int PegarJogadorDono() 
+    {
+        if(conquistado=true)
+        {
+            return jogadorDono = 1;
+        }
+        else
+        {
+            return jogadorDono = 2;
+        }
+       
+        
+    }
+
    
 }
