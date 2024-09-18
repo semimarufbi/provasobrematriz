@@ -74,4 +74,23 @@ public class GameManager : MonoBehaviour
         }
         FimDeJogo();
     }
+
+    void FimDeJogo(int territoriosJogador1, int territoriosJogador2)
+    {
+        string nomeVencedor;
+
+        if (territoriosJogador1 > territoriosJogador2) 
+        {
+            nomeVencedor = "Jogador 1 Venceu";
+        }
+        if (territoriosJogador1 < territoriosJogador2)
+        {
+            nomeVencedor = "Jogador 2 Venceu";
+        }
+        else
+        {
+            nomeVencedor = "Empate";
+        }
+        Debug.Log(nomeVencedor);
+    }
 }
