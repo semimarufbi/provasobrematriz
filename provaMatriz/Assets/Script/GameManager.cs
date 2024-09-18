@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     [SerializeField] GameObject block;
     [SerializeField] GameObject jogador1;
     [SerializeField] GameObject jogador2;
@@ -14,7 +16,7 @@ public class GameManager : MonoBehaviour
     public int coluna = 5; 
     public float spacing = 1.1f;
 
-    private Bloco[,] bloco;
+    private GameObject[,] bloco;
     private int territoriosConquistados;
 
     public static GameManager instance;
@@ -23,7 +25,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
        instance = this;
-       bloco = new Bloco[linha,coluna];
+       bloco = new GameObject[linha,coluna];
        CriarGrade();
     }
     #endregion
@@ -35,8 +37,8 @@ public class GameManager : MonoBehaviour
             for(int j = 0; j < coluna; j++)
             {
                 Vector2 position = new Vector2(i * spacing, j * spacing);
-                GameObject newBlock = Instantiate(block, position, Quaternion.identity);
-                bloco[i,j] = newBlock;
+                GameObject novoBloco = Instantiate(block, position, Quaternion.identity);
+                bloco[i,j] = novoBloco;
             }
         }
 
@@ -61,18 +63,18 @@ public class GameManager : MonoBehaviour
 
             for(int i = 0;i < bloco.Length; i++) 
             {
-                if( Bloco.PegarJogadorDono == 1)
+                if( PegarJogadorDono == 1 )
                 {
                     territorioJogador1++;
                 }
-                else
+                else if(PegarJogadorDono == 2)
                 {
                     territorioJogador2++;
 
                 }
             }
         }
-        FimDeJogo();
+        FimDeJogo()
     }
 
     void FimDeJogo(int territoriosJogador1, int territoriosJogador2)

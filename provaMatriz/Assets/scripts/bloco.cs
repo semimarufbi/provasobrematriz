@@ -24,13 +24,13 @@ public class Bloco : MonoBehaviour
         if (jogador1)
         {
           jogadorDono = 1;
-            //gamemanager.instance.ConquistarTerritorio();
+            GameManager.instance.ConquistarTerritorio();
 
         }
         else
         {
             jogadorDono= 2;
-            //gamemanager.instance.ConquistarTerritorio();
+            GameManager.instance.ConquistarTerritorio();
         }
     }
     public void PegarConquistado() 
