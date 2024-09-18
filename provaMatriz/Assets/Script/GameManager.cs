@@ -45,6 +45,10 @@ public class GameManager : MonoBehaviour
 
         Camera.main.transform.position = new Vector3(linha*coluna / 2f - 0.5f, linha * coluna / 2f - 0.5f, -10);
         Camera.main.orthographicSize = linha*coluna / 2f;
+
+        Instantiate(block, posicaoJogador1,Quaternion.identity);
+        Instantiate(block, posicaoJogador2, Quaternion.identity);
+
     }
     public void ConquistarTerritorio() 
     {
@@ -56,12 +60,37 @@ public class GameManager : MonoBehaviour
             int territorioJogador2;
 
             for(int i = 0;i < bloco.Length; i++) 
-            { 
-                if ()
+            {
+                if( Bloco.PegarJogadorDono == 1)
                 {
+                    territorioJogador1++;
+                }
+                else
+                {
+                    territorioJogador2++;
 
                 }
             }
         }
+        FimDeJogo();
+    }
+
+    void FimDeJogo(int territoriosJogador1, int territoriosJogador2)
+    {
+        string nomeVencedor;
+
+        if (territoriosJogador1 > territoriosJogador2) 
+        {
+            nomeVencedor = "Jogador 1 Venceu";
+        }
+        if (territoriosJogador1 < territoriosJogador2)
+        {
+            nomeVencedor = "Jogador 2 Venceu";
+        }
+        else
+        {
+            nomeVencedor = "Empate";
+        }
+        Debug.Log(nomeVencedor);
     }
 }
