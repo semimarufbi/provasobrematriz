@@ -20,7 +20,7 @@ public class Bloco : MonoBehaviour
     public void AlterarConquista(bool jogador1, Color corDoJogador)
     {
         conquistado = true;
-        //AtualizarCor();
+        AtualizarCor(corDoJogador);
         if (jogador1)
         {
           jogadorDono = 1;
@@ -46,7 +46,7 @@ public class Bloco : MonoBehaviour
     }
     public int PegarJogadorDono() 
     {
-        if(conquistado=true)
+        if(conquistado)
         {
             return jogadorDono = 1;
         }
@@ -56,6 +56,10 @@ public class Bloco : MonoBehaviour
         }
        
         
+    }
+    private void AtualizarCor(Color novaCor)
+    {
+        spriteRenderer.color = novaCor;
     }
 
    
