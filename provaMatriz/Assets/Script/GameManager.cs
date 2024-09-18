@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private Bloco[,] bloco;
     private int territoriosConquistados;
 
-    static GameManager instance;
+    public static GameManager instance;
 
     #region Singleton
     private void Awake()
@@ -45,6 +45,10 @@ public class GameManager : MonoBehaviour
 
         Camera.main.transform.position = new Vector3(linha*coluna / 2f - 0.5f, linha * coluna / 2f - 0.5f, -10);
         Camera.main.orthographicSize = linha*coluna / 2f;
+
+        Instantiate(block, posicaoJogador1,Quaternion.identity);
+        Instantiate(block, posicaoJogador2, Quaternion.identity);
+
     }
     public void ConquistarTerritorio() 
     {
@@ -56,9 +60,14 @@ public class GameManager : MonoBehaviour
             int territorioJogador2;
 
             for(int i = 0;i < bloco.Length; i++) 
-            { 
-                if ()
+            {
+                if( == 1)
                 {
+                    territorioJogador1++;
+                }
+                else
+                {
+                    territorioJogador2++;
 
                 }
             }
