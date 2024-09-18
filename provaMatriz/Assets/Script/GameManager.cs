@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
             for(int i = 0;i < bloco.Length; i++) 
             {
-                if( == 1)
+                if( Bloco.PegarJogadorDono == 1)
                 {
                     territorioJogador1++;
                 }
@@ -72,5 +72,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        FimDeJogo();
     }
 }
