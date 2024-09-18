@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private void direção()
     {
-
+        new Vector2();
     }
 
     // Start is called before the first frame update
@@ -26,6 +26,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       if (jogador1)
+        {
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                new Vector2(0, -3);
+            }
+        } 
     }
 }
